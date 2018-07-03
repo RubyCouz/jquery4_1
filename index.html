@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Shifumi!</title>
+</head>
+<body>
+  <label for="choices">Faites votre choix</label>
+  <select id="userChoices" name="userchoices" size="3" single>
+    <option value="0">Pierre</option>
+    <option value="1">Feuille</option>
+    <option value="2">Ciseaux</option>
+  </select>
+  <button name="shifumi" id="shifumi" onclick="shifumi">Shifumi!</button>
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script>
+$(function() {
+  var botChoiceList = ['pierre, feuille, ciseaux'];
+  var counter = 0;
+  var victory = 0;
+  var defeat = 0;
+  var equality = 0;
+  $('#shifumi').click(function() {
+    counter ++;
+    var botChoice = Math.floor(Math.random() * 3);//variable choix random
+    var userChoice = $('#userChoice').val(); // val récupère la valeur de l'attribut value.
+    if (userChoice == 0 && botChoice == 2) {
+      victory ++;
+      alert('Gagné');
+    } else if (playerChoice == 2 && botChoice == 0) {
+      defeat ++;
+      alert('Perdu');
+    } else if (userChoice > botChoice) {
+      victory ++;
+      alert ('Gagné');
+    } else if (botchoice$ > userChoice) {
+      defeat ++;
+      alert ('perdu');
+    } else {
+      equality ++;
+      alert ('Egalité');
+    }
+    var winRate = Math.trunc((victory / counter) * 100);
+    alert('vous avez gagné ' + winRate + 'des parties');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Shifumi!</title>
+  </head>
+  <body>
+    <label for="choices">Faites votre choix</label>
+    <select id="choices" name="choices" size="3" single>
+      <option value="1">Pierre</option>
+      <option value="2">Feuille</option>
+      <option value="3">Ciseaux</option>
+    </select>
+    <button name="shifumi" id="shifumi">Shifumi!</button>
+    <p id="output"></p>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+<script>
+let shifumi = document.getElementById('shifumi');
+let itemList = document.getElementById('choices');
+let outputBox = document.getElementById('output');
+
+
+shifumi.addEventListener('click', function(){
+let collection = itemList.selectedOption;
+let botChoice = Math.floor(Math.random() * 3);
+let output = '';
+if (itemList == botChoice) {
+  output = 'Egalité';
+} else if ((itemList == 1) && (botChoice == 2)) {
+  output = 'Perdu';
+} else if ((itemList == 2) && (botChoice == 3)) {
+  output = 'perdu';
+} else if ((itemList == 3) && (botChoice == 1)) {
+  output = 'perdu';
+} else if ((itemList == 1) && (botChoice == 3)) {
+  output = 'Gagné';
+} else if ((itemList == 2) && (botChoice == 1)) {
+  output = 'Gagné';
+} else if ((itemList == 3) && (botChoice == 2)) {
+  output = 'Gagné'
+}
+outputBox.innerHtml = output;
+});
+</script>
+  </body>
+</html>
